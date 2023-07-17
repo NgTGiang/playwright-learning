@@ -23,6 +23,8 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    // Run test in headed mode
+    headless: false,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
@@ -48,12 +50,17 @@ export default defineConfig({
     },
 
     {
-      name: 'Microsoft Edge',
-      use: {
-        // Supported Microsoft Edge channels are: msedge, msedge-beta, msedge-dev, msedge-canary
-        channel: 'msedge',
-      },
-    }
+      name: 'Edge',
+      use: { ...devices['Desktop Edge'] },
+    },
+
+    // {
+    //   name: 'Edge',
+    //   use: {
+    //     // Supported Microsoft Edge channels are: msedge, msedge-beta, msedge-dev, msedge-canary
+    //     channel: 'msedge',
+    //   },
+    // }
 
     /* Test against mobile viewports. */
     // {
